@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-stone-50 text-stone-800 font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-gold-300 text-wine-900;
+  }
+}
+
+@layer components {
+  .container-lux {
+    @apply max-w-7xl mx-auto px-6 lg:px-10;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gold-500 text-wine-900 font-medium tracking-wide transition-all duration-300 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/30 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border border-gold-400/60 text-gold-200 font-medium tracking-wide transition-all duration-300 hover:bg-gold-500 hover:text-wine-900 hover:border-gold-500 hover:-translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-stone-200 font-medium tracking-wide transition-all duration-300 hover:text-gold-300;
+  }
+
+  .section-title {
+    @apply font-serif text-4xl md:text-5xl lg:text-6xl font-light text-wine-900 leading-tight;
+  }
+
+  .section-eyebrow {
+    @apply inline-flex items-center gap-3 text-gold-600 font-sans text-sm font-semibold uppercase tracking-[0.25em] mb-4;
+  }
+
+  .input-lux {
+    @apply w-full px-4 py-3.5 rounded-xl bg-stone-50 border border-stone-300 text-stone-800 placeholder-stone-400 transition-all duration-200 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20;
+  }
+
+  .card-lux {
+    @apply bg-white rounded-2xl shadow-sm border border-stone-200/60 transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-gradient-lux {
+    background: linear-gradient(135deg, #292622 0%, #3D1920 50%, #4A3217 100%);
+  }
+
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, #DFC28A 0%, #C9933F 100%);
+  }
+
+  .shimmer-text {
+    background: linear-gradient(90deg, #C9933F 0%, #F5EDDD 50%, #C9933F 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-dark {
+    background: rgba(41, 38, 34, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F2F0EB;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4A85E;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C9933F;
+}
+
+/* Reveal-on-scroll initial state */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
